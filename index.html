@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Front End Developer Technical Test">
+    <meta name="author" content="Jakub Czaja">
+    <title>Charger Map - Technical Test</title>
+    <!-- Style Sheets -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Title bar -->
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container">
+        <a href="index.html" class="navbar-brand"><i class="fas fa-briefcase"></i> Charger Map - Technical Test</a>
+      </div>
+    </nav>
+    <!-- Page Content -->
+    <main class="container">
+      <!-- Map Container -->
+      <div id="mapContainer" class="mt-4 mb-3 rounded">
+        <button class="btn btn-sm btn-info" type="button" id="userLocation" name="button"><i class="fas fa-globe"></i> My Location</button>
+        <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+        <div id="map"></div>
+        <div id="infowindow-content">
+          <span id="place-name" class="title"></span><br>
+          <span id="place-address"></span>
+        </div>
+        <div class="button-group" id="filters">
+          <button type="button" class="btn btn-info btn-sm dropdown-toggle filterBtn" data-toggle="dropdown"><i class="fas fa-filter"></i>&nbsp;<i class="caret"></i></button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="small"><label class="btn btn-sm btn-info text-left active">
+                <input type="radio" name="chargerFilter" id="all" checked>&nbsp;All connector types</label>
+              </a>
+            </li>
+            <li>
+              <a class="small"><label class="btn btn-sm btn-info text-left active">
+                <input type="radio" name="chargerFilter" id="3-pin Type G (BS1363)">&nbsp;3-pin Type G (BS1363)</label>
+              </a>
+            </li>
+            <li>
+              <a class="small"><label class="btn btn-sm btn-info text-left active">
+                <input type="radio" name="chargerFilter" id="Type 2 Mennekes (IEC62196)">&nbsp;Type 2 Mennekes (IEC62196)</label>
+              </a>
+            </li>
+            <li>
+              <a class="small"><label class="btn btn-sm btn-info text-left active">
+                <input type="radio" name="chargerFilter" id="JEVS G105 (CHAdeMO) DC">&nbsp;JEVS G105 (CHAdeMO) DC</label>
+              </a>
+            </li>
+            <li>
+              <a class="small"><label class="btn btn-sm btn-info text-left active">
+                <input type="radio" name="chargerFilter" id="Type 2 Combo (IEC62196) DC">&nbsp;Type 2 Combo (IEC62196) DC</label>
+              </a>
+            </li>
+            <li>
+              <a class="small"><label class="btn btn-sm btn-info text-left active">
+                <input type="radio" name="chargerFilter" id="Type 2 Tesla (IEC62196) DC">&nbsp;Type 2 Tesla (IEC62196) DC</label>
+              </a>
+            </li>
+            <li>
+              <a class="small"><label class="btn btn-sm btn-info text-left active">
+                <input type="radio" name="chargerFilter" id="Type 1 SAEJ1772 (IEC 62196)">&nbsp;Type 1 SAEJ1772 (IEC 62196)</label>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Info Section -->
+      <div class="row">
+        <div class="col-lg-12 mb-4">
+          <div class="card h-100">
+            <h4 class="card-header"><i class="fas fa-map-marker-alt"></i> The task:</h4>
+            <div class="card-body">
+              <p class="card-text">
+                <ul class="fa-ul">
+                  <li><i class="fa-li far fa-check-circle"></i>using the JSON download provided by data.gov.uk, create a map of electric vehicle charging locations in the UK</li>
+                  <li><i class="fa-li far fa-check-circle"></i>show only charging locations that are free from access restrictions that do not require a subscription</li>
+                  <li><i class="fa-li far fa-check-circle"></i>provide a way for the user to centre/zoom the map on a location through free key</li>
+                  <li><i class="fa-li far fa-check-circle"></i>provide a way for the user to centre/zoom the map on a location through geolocation</li>
+                  <li><i class="fa-li far fa-check-circle"></i>provide a way for the user to click on a map marker to get details of a given charging location</li>
+                  <li><i class="fa-li far fa-check-circle"></i>show the device name, full address, whether or not it's 24 hour access, connector type(s) and payment details</li>
+                  <li><i class="fa-li far fa-check-circle"></i>parse the JSON data to construct a form field that allows the user to filter the charging locations on a specific connector type</li>
+                  <li><i class="fa-li far fa-check-circle"></i>provide a way for the user to get directions to a given charging location</li>
+                </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Jakub Czaja <i class="far fa-copyright"></i> 2018</p>
+      </div>
+    </footer>
+    <!-- JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy8Sy2czWMw30C14ph-a0evqB4TPAWRUI&libraries=places&components=country:GB&amp;callback=initMap"></script>
+    <script src="vendor/markerclusterer.js" charset="utf-8"></script>
+    <script src="js/main.js" charset="utf-8"></script>
+  </body>
+</html>
